@@ -15,7 +15,19 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'vue/multi-word-component-names': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'vue/no-mutating-props': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'vue/no-unused-components': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
+    'vue/no-unused-components': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'vue/no-deprecated-slot-attribute': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'vue/no-deprecated-slot-attribute': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'vue/no-deprecated-slot-attribute': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-dupe-keys': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'comma-dangle': 0,
+    quotes: 0,
+    'semi': 0,
+    'space-before-function-paren':0,
+    'spaced-comment':0,
+    'no-multiple-empty-lines':0,
+    'no-trailing-spaces':0,
+
   },
   overrides: [{
     files: [

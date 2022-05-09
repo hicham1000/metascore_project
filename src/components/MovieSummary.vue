@@ -1,10 +1,10 @@
 <template>
   <div class="movie-grid">
     <ul>
-      <li v-for="movie in movies" :key="movie"></li>
-      <div>{{ titles }}</div>
-      <div>{{ year }}</div>
-      <div>{{ poster }}</div>
+      <li class="poster">{{ poster }}></li>
+      <li class="title">{{ title }}</li>
+      <li class="year">{{ year }}</li>
+      <!-- <img src="v-for="poster in poster" :key="poster""> -->
     </ul>
   </div>
 </template>
@@ -12,21 +12,21 @@
 <script>
 export default {
   props: {
-    img: {
+    poster: {
       type: String,
       required: false,
-      default: ''
+      default: "",
     },
     title: {
       type: String,
       required: false,
-      default: ''
+      default: "",
     },
     year: {
       type: String,
       required: false,
-      default: ''
-    }
-  }
-}
+      default: "",
+    },
+  },
+};
 </script>

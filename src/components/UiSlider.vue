@@ -7,17 +7,17 @@
       :min="min"
       :max="max"
       :step="step"
-      :value="value"
-      @input="onInputChange"
+      :modelValue="modelValue"
+      @update:modelValue="setFilterValue"
     />
   </div>
 </template>
 
 <script>
 export default {
-  emits: ['input'],
+  emits: ['update:modelValue'],
   props: {
-    value: {
+    modelValue: {
       type: Number,
       required: false,
       default: 50
@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     onInputChange (event) {
-      this.$emit('input', event.target.value)
+      this.$emit('update:modelValue', event.target.value)
     }
   }
 }
