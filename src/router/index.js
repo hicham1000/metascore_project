@@ -6,7 +6,11 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      home: 'home',
       component: GridView,
+      // async beforeEnter (to, from, next) {
+      //   await store.dispatch('getAllMovies')
+      // }
     }
   ],
 })

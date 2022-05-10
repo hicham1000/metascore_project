@@ -11,10 +11,10 @@ const store = createStore({
     lastErrorMessage: ''
   },
   getters: {
-    getFilteredMovies (state) {
+    getFilteredMovies(state) {
       return state.movies.filter(movie => movie && !isNaN(Number(movie.Metascore)))
     },
-    allMoviesGenres (state) {
+    allMoviesGenres(state) {
       const genres = state.movies
         .filter(movie => movie && movie.Genre)
         .flatMap((movie) => movie.Genre.split(','))
@@ -23,15 +23,15 @@ const store = createStore({
     }
   },
   mutations: {
-    setListNumber (state, list) {
+    setListNumber(state, list) {
       state.list = list
       // const list = state.list
       // state.filters[keyname] = value 
     },
-    ON_MOVIES_FETCHED (state, movies) {
+    ON_MOVIES_FETCHED(state, movies) {
       state.movies = movies
     },
-    ON_MOVIES_FETCH_ERROR (state, error) {
+    ON_MOVIES_FETCH_ERROR(state, error) {
       state.lastErrorMessage = error.message
     },
     setFilterValue(state, payload) {
@@ -43,8 +43,12 @@ const store = createStore({
     },
   },
   actions: {
-    getAllMovies (store) {
+    getAllMovies(store) {
       const { list } = store.state
+      // fetch('http://localhost:8080/movies')
+      //   .then(response => response.json())
+      //   .then(movies => store.commit('ON_MOVIES_FETCHED', movies))
+      //   .catch(e => store.commit('ON_MOVIES_FETCH_ERROR', e))
       return fetch(`https://api.themoviedb.org/3/list/${list}?api_key=7248330eaedc659a3fb3ab4ff9069bc2&language=en-US`)
         .then(response => response.json())
         .then(response => response.items)

@@ -42,19 +42,28 @@ export default {
   justify-content: space-around; */
   justify-content: space-around;
   align-content: center;
-  background-color: rgb(59, 58, 58)
-  
-
+  background-color: rgb(59, 58, 58);
 }
 .poster {
   /* max-width: 230px;
   max-height: 350px; */
   flex-basis: 15%;
+  border: solid 10px transparent;
+}
+img:hover {
+  border-color: red;
+    position:relative;
+    top:-25px;
+    left:-35px;
+    width:700px;
+    height:auto;
+    display:block;
+    z-index:999;
 }
 .title {
   color: white;
 }
-.year{
+.year {
   color: white;
 }
 </style>
