@@ -1,5 +1,7 @@
 <template>
   <div class="container">
+    <!-- <router-link :to="{ name: movies, params: { id: 123 } }" /> -->
+
     <Sidebar class="sidebar" title="Genres">
       <!-- <template v-slot:body> -->
 

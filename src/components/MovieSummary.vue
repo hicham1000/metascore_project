@@ -1,10 +1,8 @@
 <template>
   <div class="movie-grid">
-    <img class="poster" :src="poster" />
-
     <div class="title">{{ title }}</div>
-
     <div class="year">{{ year }}</div>
+    <img class="poster" :src="poster" />
     <!-- <img src="v-for="poster in poster" :key="poster""> -->
   </div>
 </template>
@@ -31,20 +29,32 @@ export default {
 };
 </script>
 <style>
-.movie-grid{
+.movie-grid {
   /* margin-top: 1em; */
-  display: grid;
-  /* grid-template-columns: repeat(5, 1fr); */
+  display: flex;
+  /* grid-template-columns: repeat(5, 1fr);
   /* grid-template-rows: repeat(5, 1fr); */
-  grid-column-gap: 5px;
+  /* grid-column-gap: 5px; */
   /* grid-row-gap: 0px; */
-  background-color: rgb(108, 110, 115);
-  margin:auto;
-  justify-content: space-around
+  /* background-color: rgb(108, 110, 115);*/
+  /* margin:auto;
+
+  justify-content: space-around; */
+  justify-content: space-around;
+  align-content: center;
+  background-color: rgb(59, 58, 58)
+  
 
 }
 .poster {
-  max-width: 230px;
-  max-height: 350px;
+  /* max-width: 230px;
+  max-height: 350px; */
+  flex-basis: 15%;
+}
+.title {
+  color: white;
+}
+.year{
+  color: white;
 }
 </style>
