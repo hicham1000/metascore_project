@@ -17,8 +17,7 @@ const store = createStore({
     allMoviesGenres(state) {
       const genres = state.movies
         .filter(movie => movie && movie.Genre)
-        .flatMap((movie) => movie.Genre.split(','))
-        .map(genre => genre.trim())
+        .flatMap((movie) => movie.Genre)
       return Array.from(new Set(genres))
     }
   },
@@ -44,20 +43,11 @@ const store = createStore({
   },
   actions: {
     getAllMovies(store) {
-      const { list } = store.state
-      // fetch('http://localhost:8080/movies')
-      //   .then(response => response.json())
-      //   .then(movies => store.commit('ON_MOVIES_FETCHED', movies))
-      //   .catch(e => store.commit('ON_MOVIES_FETCH_ERROR', e))
-      return fetch(`https://api.themoviedb.org/3/list/${list}?api_key=7248330eaedc659a3fb3ab4ff9069bc2&language=en-US`)
+      const headers = new Headers({})
+      headers.set('Authorization', 'Xu5dFkttF9yc49tCM2WYNJ2VYrUceBaL6mSWR9GTmtAfdGtqJS22KPzmKeHdcrdW');
+
+      fetch('http://localhost:8080/movies', { headers })
         .then(response => response.json())
-        .then(response => response.items)
-        .then(movies => movies.map(m => m.title))
-        .then(titles => titles.map(title => {
-          return fetch(`https://www.omdbapi.com/?t=${title}&apikey=14183770`)
-            .then(response => response.json())
-        }))
-        .then(promises => Promise.all(promises))
         .then(movies => store.commit('ON_MOVIES_FETCHED', movies))
         .catch(e => store.commit('ON_MOVIES_FETCH_ERROR', e))
     }

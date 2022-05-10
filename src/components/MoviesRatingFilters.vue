@@ -33,11 +33,11 @@ export default {
   computed: {
     metascore: {
       get: () => store.state.filters.metascore,
-      set: (v) => setFilterValue("metascore", v)
+      set: (v) => setFilterValue('metascore', v)
     },
     rating: {
       get: () => store.state.filters.rating,
-      set: (v) => setFilterValue("rating", v)
+      set: (v) => setFilterValue('rating', v)
     }
   }
 };

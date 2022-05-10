@@ -3,15 +3,16 @@
     <!-- <router-link :to="{ name: movies, params: { id: 123 } }" /> -->
 
     <Sidebar class="sidebar" title="Genres">
-      <!-- <template v-slot:body> -->
+      <template v-slot:body>
+        <MovieGenreList :genre="allMoviesGenres" />
+        <!-- properité filters -->
+        <MoviesRatingFilters />
 
-      <MovieGenreList slot="body" :genre="allMoviesGenres" />
-      <!-- properité filters -->
-      <MoviesRatingFilters slot="body" />
-
-      {{ filters.metascore }}
-      {{ filters.rating }}
-      {{ genres }}
+        {{ filters.metascore }}
+        {{ filters.rating }}
+        {{ genres }}
+      </template>
+      <!-- <UiSlider/> -->
     </Sidebar>
     <MovieGrid class="grid" :movies="movies" />
   </div>

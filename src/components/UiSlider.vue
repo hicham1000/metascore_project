@@ -1,5 +1,6 @@
 <template>
   <div class="movies-rating-filters">
+    <div>{{ name }} {{ modelValue }}</div>
     <label v-if="label.length" :for="name">{{ label }}</label>
     <input
       type="range"
@@ -7,15 +8,17 @@
       :min="min"
       :max="max"
       :step="step"
-      :modelValue="modelValue"
-      @update:modelValue="setFilterValue"
+      :value="modelValue"
+      @input="onInputChange"
     />
+    <!-- :modelValue="modelValue"
+      @update:modelValue="setFilterValue" -->
   </div>
 </template>
 
 <script>
 export default {
-  emits: ['update:modelValue'],
+  emits: ["update:modelValue"],
   props: {
     modelValue: {
       type: Number,
@@ -25,7 +28,7 @@ export default {
     label: {
       type: String,
       required: false,
-      default: ''
+      default: ""
     },
     name: {
       type: String,
@@ -48,9 +51,9 @@ export default {
     }
   },
   methods: {
-    onInputChange (event) {
-      this.$emit('update:modelValue', event.target.value)
+    onInputChange(event) {
+      this.$emit("update:modelValue", event.target.value);
     }
   }
-}
+};
 </script>
